@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Управление информацией о городах</title>
+</head>
+<body>
+    <h1>Управление информацией о городах</h1>
+
+    <table id="content">
+        <!-- Форма для добавления нового города -->
+        <tr>
+            <td width="33%">
+                <h2>Добавить город</h2>
+                <form id="addCityForm">
+                    <label for="name">Название:</label>
+                    <input type="text" id="name" name="name" required><br>
+                
+                    <label for="yearFounded">Год основания:</label>
+                    <input type="number" id="yearFounded" name="yearFounded" required><br>
+                
+                    <label for="population">Население:</label>
+                    <input type="number" id="population" name="population" required><br>
+                
+                    <label for="capital">Столица (да/нет):</label>
+                    <select id="capital" name="capital" required>
+                        <option value="true">Да</option>
+                        <option value="false">Нет</option>
+                    </select><br>
+                
+                    <button type="submit">Добавить</button>
+                </form>
+            </td>
+
+            <!-- Форма для редактирования города -->
+            <td width="33%">
+                <h2>Редактировать информацию о городе</h2>
+                <form id="editCityForm">
+                    <label for="editCityId">ID города:</label>
+                    <input type="text" id="editCityId" name="editCityId" required><br>
+
+                    <label for="editName">Новое название:</label>
+                    <input type="text" id="editName" name="editName" required><br>
+
+                    <label for="editYearFounded">Новый год основания:</label>
+                    <input type="number" id="editYearFounded" name="editYearFounded" required><br>
+
+                    <label for="editPopulation">Новое население:</label>
+                    <input type="number" id="editPopulation" name="editPopulation" required><br>
+
+                    <label for="editCapital">Новый статус столицы (да/нет):</label>
+                    <select id="editCapital" name="editCapital" required>
+                        <option value="true">Да</option>
+                        <option value="false">Нет</option>
+                    </select><br>
+
+                    <button type="submit">Изменить</button>
+                </form>
+            </td>
+        </tr>
+
+        <!-- Форма для удаления города -->
+        <tr>
+            <td>
+                <h2>Удалить город по ID</h2>
+                <form id="deleteCityForm">
+                    <label for="deleteCityId">ID города:</label>
+                    <input type="text" id="deleteCityId" name="deleteCityId" required><br>
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
+
+            <!-- Другие формы (поиск по ID, по населению и т. д.) могут быть добавлены по аналогии с предыдущими формами -->
+        </tr>
+        <tr>
+            <td>
+                <h2>Показать столицы с населением больше заданного</h2>
+                <form id="showCapitalsForm">
+                    <label for="minPopulation">Минимальное население:</label>
+                    <input type="number" id="minPopulation" name="minPopulation" required><br>
+                    <button type="submit" style="text-align: center;">Показать</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+<!-- <table><tr>
+    <td>
+        <h2>Показать столицы с населением больше заданного</h2>
+        <form id="showCapitalsForm">
+            <label for="minPopulation">Минимальное население:</label>
+            <input type="number" id="minPopulation" name="minPopulation" required><br>
+            <button type="submit">Показать</button>
+        </form>
+    </td>
+</tr></table>
+     -->
+
+    <!-- Место для отображения результатов запросов к серверу -->
+    <div id="cityResults"></div>
+
+    <!-- Место для отображения таблицы с городами -->
+    <table id="cityTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Год основания</th>
+                <th>Население</th>
+                <th>Столица</th>
+            </tr>
+        </thead>
+        <tbody id="cityBody">
+            <!-- Здесь будет содержимое таблицы -->
+        </tbody>
+    </table>
+
+    <!-- Кнопка для обновления таблицы городов -->
+    <button id="refreshCity" style="margin-top: 15px">Обновить таблицу</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
